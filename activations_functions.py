@@ -10,11 +10,12 @@ def tanh(x):
     return f_x
 
 def relu(x):
-    f_x = max(0, x)
+    f_x = np.maximum(0, x)
     return f_x
 
 def softmax(x):
-    f_x = np.exp(x)/  np.sum(np.exp(x), axis=0)
+    exp_x = np.exp(x - np.max(x))  
+    f_x = exp_x / np.sum(exp_x, axis=-1, keepdims=True)
     return f_x
 
 # Derivatives 
