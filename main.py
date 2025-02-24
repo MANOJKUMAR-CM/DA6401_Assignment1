@@ -89,3 +89,51 @@ def initialize_weights(layers, init_method="xavier"):
         bias[i] = np.zeros((layers[i], 1))
         
     return Weights, bias
+
+def forward_propagation(X, W, b, activations):
+    """
+    Forward Propogation of data once through the Neural Network
+    
+    Parameters:
+    
+    X: numpy array
+        shape: [784, batch_size]
+        
+    W: dict
+        Dictionary containing weights
+    
+    b: dict
+        Dictionary containing bias vectors
+    
+    activations: string
+        Activation function of the hidden layers; Except the output layer
+    
+    """
+    A = X # Inputs
+    # To store Intermediate values which would be used during BackPropogation
+    pre_Activation = {}
+    Activation = {}
+    Activation["A0"] = A # Initial Activation is the input itself
+    
+    for i in range(1, len(W)+1):
+        # Pre activation at layer i
+        Z = np.dot(W[i], A) + b[i] 
+        
+        # Activation at layer i
+        if i == len(W): # Output layer (softmax)
+            A = softmax(Z)
+        else:
+            if activations == "relu":
+                A = relu(Z)
+
+            elif activations == "tanh":
+                A = tanh(Z)
+
+            elif activations == "sigmoid":
+                A = sigmoid(Z)
+            
+        pre_Activation[f"Z{i}"] = Z
+        Activation[f"A{i}"] = A
+        
+    return A, pre_Activation, Activation
+    
