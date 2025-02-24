@@ -137,3 +137,58 @@ def forward_propagation(X, W, b, activations):
         
     return A, pre_Activation, Activation
     
+def backward_propagation(Y, pre_Activation, Activation, W, b, activation_func):
+    """
+    To Compute the gradients with respect to weights and biases
+    
+    Parameters:
+    
+    Y: numpy array
+        shape: [num_classes, batch_size]
+        
+    W: dict
+        Dictionary containing weights
+    
+    b: dict
+        Dictionary containing bias vectors
+    
+    pre_Activation: dict
+        Dictionary containing Z values of each Layer
+    
+    Activation: dict
+        Dictionary containing H values of each layer
+        
+    activation_func: string
+        Activation function utilized in the hidden layer
+    """
+    
+    gradients = {}
+    L = len(W) # Number of Layers
+    
+    # Assuming cross entropy loss
+    dA = Activation[f"A{L}"] - Y # output layer
+    
+    for i in range(L, 0, -1):
+        dZ = dA
+        
+        if i < L:
+            Z = pre_Activation[f"Z{i}"]
+            if activation_func == "relu":
+                dZ = dA * d_relu(Z)
+                
+            elif activation_func == "sigmoid":
+                dZ = dA * d_sigmoid(Z)
+                
+            elif activation_func == "tanh":
+                dZ = dA * d_tanh(Z)
+                
+        dW = np.dot(dZ, Activation[f"A{i-1}"].T) / Y.shape[1]  # Normalizing by batch size
+        db = np.sum(dZ, axis=1, keepdims=True) / Y.shape[1]
+        
+        gradients[f"dW{i}"] = dW
+        gradients[f"db{i}"] = db
+        
+        dA = np.dot(W[i].T, dZ)
+        
+    return gradients  
+
