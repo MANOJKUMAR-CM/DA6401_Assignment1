@@ -1,7 +1,5 @@
 import numpy as np
 from activations_functions import *
-from loss import *
-from optimizers import *
 from keras.datasets import fashion_mnist
 from sklearn.model_selection import train_test_split
 
@@ -148,110 +146,26 @@ def forward_propagation(X, W, b, activations):
         
     return A, pre_Activation, Activation
 
-    
-def backward_propagation(Y, pre_Activation, Activation, W, b, activation_func):
-    """
-    To Compute the gradients with respect to weights and biases
-    
-    Parameters:
-    
-    Y: numpy array
-        shape: [num_classes, batch_size]
-        
-    W: dict
-        Dictionary containing weights
-    
-    b: dict
-        Dictionary containing bias vectors
-    
-    pre_Activation: dict
-        Dictionary containing Z values of each Layer
-    
-    Activation: dict
-        Dictionary containing H values of each layer
-        
-    activation_func: string
-        Activation function utilized in the hidden layer
-    """
-    
-    gradients = {}
-    L = len(W) # Number of Layers
-    
-    # Assuming cross entropy loss
-    dA = Activation[f"A{L}"] - Y # output layer
-    
-    for i in range(L, 0, -1):
-        dZ = dA
-        
-        if i < L:
-            Z = pre_Activation[f"Z{i}"]
-            if activation_func == "relu":
-                dZ = dA * d_relu(Z)
-                
-            elif activation_func == "sigmoid":
-                dZ = dA * d_sigmoid(Z)
-                
-            elif activation_func == "tanh":
-                dZ = dA * d_tanh(Z)
-                
-        dW = np.dot(dZ, Activation[f"A{i-1}"].T) / Y.shape[1]  # Normalizing by batch size
-        db = np.sum(dZ, axis=1, keepdims=True) / Y.shape[1]
-        
-        gradients[f"dW{i}"] = dW
-        gradients[f"db{i}"] = db
-        
-        dA = np.dot(W[i].T, dZ)
-        
-    return gradients  
+print("The Input layer is length of the flattened vector, output Layer is set to number of classes")
+print("!!Input Layers and Output layer is not part of the hidden layers!!")
+print()
+n = int(input("Enter the Number of Hidden layers:"))
+layers = []
+layers.append(X_train.shape[0])
+for i in range(1, n+1):
+    k = int(input(f"Enter the Number of neurons in Hidden layer{i}: "))
+    layers.append(k)
+layers.append(Y_test.shape[0])
 
-# Defining network architecture
-layers = [784, 128, 64, 10]  # Input -> Hidden Layers -> Output
-activation_func = "sigmoid"  # Hidden layer activation
+activation_func = "tanh"
 
-# Initialize weights and biases
-W, b = initialize_weights(layers, init_method="random")
+W, b = initialize_weights(layers, "random")
 
-# Hyperparameters
-epochs = 20
-batch_size = 32
-learning_rate = 0.01
-beta = 0.9  # Momentum coefficient
+X = X_train[:, :256] # First 256 samples
+Y = Y_train[:, :256] 
 
-# Momentum terms
-uW = {i: np.zeros_like(W[i]) for i in W}
-ub = {i: np.zeros_like(b[i]) for i in b}
-
-num_batches = X_train.shape[1] // batch_size  
-
-for epoch in range(epochs):
-    
-    epoch_loss = 0  
-
-    for i in range(num_batches):
-
-        start = i * batch_size
-        end = start + batch_size
-        X_batch = X_train[:, start:end]
-        Y_batch = Y_train[:, start:end]
-        
-        y_pred, pre_Activation, Activation = forward_propagation(X_batch, W, b, activation_func)
-        
-        loss = cross_entropy(Y_batch, y_pred)
-        epoch_loss += loss  
-        
-        # Computing the gradients
-        gradients = backward_propagation(Y_batch, pre_Activation, Activation, W, b, activation_func)
-
-        # Updating weights using optimizer
-        W, b, uW, ub = Momentum_GD(W, b, uW, ub, gradients, learning_rate, beta)
-
-    # Print loss averaged over all batches
-    print(f"Epoch {epoch+1}/{epochs}, Loss: {epoch_loss / num_batches:.4f}")
-
-# Testing
-y_test_pred, _, _ = forward_propagation(X_test, W, b, activation_func)
-y_test_pred = np.argmax(y_test_pred, axis=0)
-y_actual = np.argmax(Y_test, axis=0)
-
-accuracy = np.mean(y_test_pred == y_actual)
-print(f"Test Accuracy: {accuracy * 100:.2f}%")
+output, _,_ = forward_propagation(X, W, b, activation_func)
+print()
+print("Shape of the output from forward propagation:", output[:, ].shape)  # (10, batch size)
+print("Class probabilities for the second sample in the batch:", output[:, 2])
+print(f"Sum of probabilities for the second sample (~1): {np.sum(output[:, 2]):,.4f}")

@@ -14,9 +14,10 @@ def relu(x):
     return f_x
 
 def softmax(x):
-    exp_x = np.exp(x - np.max(x))  
-    f_x = exp_x / np.sum(exp_x, axis=-1, keepdims=True)
-    return f_x
+    exp_x = np.exp(x - np.max(x, axis=0, keepdims=True))  # Stability fix
+    return exp_x / np.sum(exp_x, axis=0, keepdims=True)  # Normalize per column (sample)
+
+
 
 # Derivatives 
 
