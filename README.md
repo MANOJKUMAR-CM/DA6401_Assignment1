@@ -34,7 +34,7 @@ The functions are implemented in `loss.py`.
 - **Relu**
 - **Softmax**
   
-The functions are implemented in `activation_functions.py`.
+The functions are implemented in `activations_functions.py`.
 
 ### Question 1
 Execute `Question1.ipynb`, make sure to update `wandb.init()` with your own wandb credentials before running.
