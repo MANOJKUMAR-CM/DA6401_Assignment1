@@ -41,7 +41,7 @@ Execute `Question1.ipynb`, make sure to update `wandb.init()` with your own wand
 
 ### Question 2
 ``` python
-Question2.py
+python Question2.py
 ``` 
 The code been implemented to accept the number of hidden layers and the number of neurons for each of the hidden layers from user and outputs the probability distribution over the 10 classes.
 
