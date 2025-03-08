@@ -71,29 +71,32 @@ The rest of the codes accepts the number of hidden layers and number of neurons 
 
 ##### MNIST dataset
 
-  ```python
-sweep_config = {
-      "name": "Feedforward Network - Hyper parameter search",
-      "metric": {
-          "name": "Validation Loss",
-          "goal": "MINIMIZE"
-      },
-      "method": "random",
-      "parameters": {
-          "learningRate": {
-              "values": [1e-3,5e-3, 1e-4]
-              },
-          "optimizer": {
-              "values": ["sgd", "momentum", "nesterov", "rmsprop", "adam", "nadam"]
-              },
-          "activationFunc": {
-              "values": ["tanh", "relu", "sigmoid"]
-              }
-           }
-        }
-```
+    ```python
+    sweep_config = {
+          "name": "Feedforward Network - Hyper parameter search",
+          "metric": {
+              "name": "Validation Loss",
+              "goal": "MINIMIZE"
+          },
+          "method": "random",
+          "parameters": {
+              "learningRate": {
+                  "values": [1e-3,5e-3, 1e-4]
+                  },
+              "optimizer": {
+                  "values": ["sgd", "momentum", "nesterov", "rmsprop", "adam", "nadam"]
+                  },
+              "activationFunc": {
+                  "values": ["tanh", "relu", "sigmoid"]
+                  }
+               }
+            }
+    ```
 
-### To Perform Hyper Parameter search on Fashion MNIST dataset, with Cross Entropy as Loss function run : `hyperParam_sweep.py`
+- To Perform Hyper Parameter search on Fashion MNIST dataset, with Cross Entropy as Loss function run : `hyperParam_sweep.py`
+- To Perform Hyper Parameter search on Fashion MNIST dataset, with MSE as Loss function run : `hyperParam_sweep_MSE.py`
+- To Perform Hyper Parameter search on MNIST dataset run : `hyperParam_sweep_MNIST.py`
+
 
 
 
