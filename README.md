@@ -1,6 +1,6 @@
 # DA6401_Assignment1  
 
-This repository contains files for **Assignment 1** of the course **DA6400 - Fundamentals of Deep Learning** at **IIT Madras**.  
+This repository contains files for **Assignment 1** of the course **DA6401 - Introduction to Deep Learning** at **IIT Madras**.  
 
 ## Assignment Overview  
 The objective of this Assignment is to **implement a Feedforward Neural Network with Backpropagation from scratch**. The implementation includes:  
