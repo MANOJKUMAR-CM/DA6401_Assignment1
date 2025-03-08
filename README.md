@@ -111,14 +111,22 @@ Before running the sweep, update the following command with your own WandB crede
 wandb.sweep(sweep_config, entity="<your_name>", project="<your_project_name>")
 ```
 
-- To Perform Hyper Parameter search on Fashion MNIST dataset, with Cross Entropy as Loss function run : `hyperParam_sweep.py`
-- To Perform Hyper Parameter search on Fashion MNIST dataset, with MSE as Loss function run : `hyperParam_sweep_MSE.py`
-- To Perform Hyper Parameter search on MNIST dataset run : `hyperParam_sweep_MNIST.py`
-
+- To Perform Hyper Parameter search on Fashion MNIST dataset, with Cross Entropy as Loss function run :
+  ``` python
+  python hyperParam_sweep_MSE.py
+  ```
+- To Perform Hyper Parameter search on Fashion MNIST dataset, with MSE as Loss function run :
+  ``` python
+  python hyperParam_sweep_MSE.py
+  ``` 
+- To Perform Hyper Parameter search on MNIST dataset run : 
+ ``` python
+  python hyperParam_sweep_MNIST.py
+  ``` 
 ### Question 7
 To train the feed forward network with the best hyper parameters obtained from the sweeps run:
 ```python
-main.py
+python main.py
 ```
 The code reports the `Test Accuracy` on Fashion_MNIST dataset and plots the `Confusion Matrix`. 
 
