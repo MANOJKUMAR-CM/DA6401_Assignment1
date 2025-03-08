@@ -15,7 +15,7 @@ The objective of this Assignment is to **implement a Feedforward Neural Network 
 
 - **SGD** - Stochastic Gradient Descent  
 - **Momentum** - Momentum-based SGD  
-- **NAG** - Nesterov Accelerated Gradient (optimized version)  
+- **NAG** - Nesterov Accelerated Gradient   
 - **RMSProp** - Root Mean Square Propagation  
 - **Adam** - Adaptive Moment Estimation  
 - **Nadam** - Nesterov Adaptive Moment Estimation  
