@@ -42,6 +42,11 @@ The functions are implemented in `loss.py`.
   
 The functions are implemented in `activations_functions.py`.
 
+### To train the network with custom parameters, check:
+```python
+python train.py -h
+```
+
 
 ### Question 1
 Execute `Question1.ipynb`, make sure to update `wandb.init()` with your own wandb credentials before running.
