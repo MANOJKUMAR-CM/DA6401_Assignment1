@@ -11,6 +11,8 @@ The objective of this Assignment is to **implement a Feedforward Neural Network 
 - **Activation Functions**  
 - **Experiment tracking using [wandb.ai](https://wandb.ai/)**
 
+## Links:
+
 ## [Wandb Report](https://api.wandb.ai/links/manoj_da24s018-iit-madras/ha0mw34v)
 
 ## [Github: Assignment1 - DA6401](https://github.com/MANOJKUMAR-CM/DA6401_Assignment1)
