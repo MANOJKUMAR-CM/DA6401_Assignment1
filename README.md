@@ -26,3 +26,9 @@ The objective of this Assignment is to **implement a Feedforward Neural Network 
 
 ### Question 1
 Execute `Question1.ipynb`, make sure to update `wandb.init()` with your own wandb credentials before running.
+
+### Question 2
+Run `Question2.py`, it has been implemented to accept the number of hidden layers and the number of neurons for each of the hidden layers from user and outputs the probability distribution over the 10 classes.
+
+The rest of the codes accepts the number of hidden layers and number of neurons in hidden layers as arguments / parameters. 
+
