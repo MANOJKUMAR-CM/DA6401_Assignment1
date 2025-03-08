@@ -119,10 +119,6 @@ wandb.sweep(sweep_config, entity="<your_name>", project="<your_project_name>")
   python hyperParam_sweep.py
   ```
   
-- To Perform Hyper Parameter search on MNIST dataset run : 
-   ``` python
-    python hyperParam_sweep_MNIST.py
-    ``` 
 ### Question 7
 To train the feed forward network with the best hyper parameters obtained from the sweeps run:
 ```python
@@ -141,5 +137,16 @@ To train the feed forward network with the best hyper parameters obtained from t
   python main_MSE.py
   ```
 The code reports the `Test Accuracy` on Fashion_MNIST dataset and plots the `Confusion Matrix`. 
+
+### Question 10
+To Perform Hyper Parameter search on MNIST dataset run : 
+   ``` python
+    python hyperParam_sweep_MNIST.py
+   ```
+To train the feed forward network with the best hyper parameters obtained from the sweeps run:
+  ```python
+  python main_MNIST.py
+  ```
+The code reports the `Test Accuracy` on MNIST dataset. 
 
   
