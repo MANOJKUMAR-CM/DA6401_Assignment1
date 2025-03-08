@@ -32,3 +32,11 @@ Run `Question2.py`, it has been implemented to accept the number of hidden layer
 
 The rest of the codes accepts the number of hidden layers and number of neurons in hidden layers as arguments / parameters. 
 
+### Question 3 - Question 6
+#### Back Propagation and Optimizers
+  The backpropagation algorithm has been implemented entirely from scratch, with all operations performed using NumPy for efficient numerical computations.
+  
+  The Optimizers have been implemented in `optimizers.py`. New Optimizers can be added as a function to this file.
+
+
+
