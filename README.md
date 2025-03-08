@@ -46,7 +46,85 @@ The functions are implemented in `activations_functions.py`.
 ```python
 python train.py -h
 ```
+It would list all the parameters that can be configured:
+```python
+usage: train.py [-h] -wp WANDB_PROJECT -we WANDB_ENTITY [-d DATASET] [-e EPOCHS] [-b BATCH_SIZE] [-l LOSS] [-o OPTIMIZER]
+                [-lr LEARNING_RATE] [-m MOMENTUM] [-beta BETA] [-beta1 BETA1] [-beta2 BETA2] [-eps EPSILON] [-w_d WEIGHT_DECAY]
+                [-w_i WEIGHT_INIT] [-nhl NUM_LAYERS] [-sz HIDDEN_SIZE] [-a ACTIVATION]
 
+optional arguments:
+  -h, --help            show this help message and exit
+  -wp WANDB_PROJECT, --wandb_project WANDB_PROJECT
+                        WandB project name (Required).
+  -we WANDB_ENTITY, --wandb_entity WANDB_ENTITY
+                        WandB entity name (Required).
+  -d DATASET, --dataset DATASET
+                        Dataset to use. Options: 'fashion_mnist', 'mnist'.
+  -e EPOCHS, --epochs EPOCHS
+                        Number of training epochs.
+  -b BATCH_SIZE, --batch_size BATCH_SIZE
+                        Batch size for training.
+  -l LOSS, --loss LOSS  Loss function to use. Options: 'cross_entropy', 'mean_squared_error'.
+  -o OPTIMIZER, --optimizer OPTIMIZER
+                        Optimizer to use. Options: 'sgd', 'momentum', 'nag', 'rmsprop', 'adam', 'nadam'.
+  -lr LEARNING_RATE, --learning_rate LEARNING_RATE
+                        Learning rate for optimization.
+  -m MOMENTUM, --momentum MOMENTUM
+                        Momentum factor (used for 'momentum' and 'NAG' optimizers).
+  -beta BETA, --beta BETA
+                        Beta parameter for RMSProp optimizer.
+  -beta1 BETA1, --beta1 BETA1
+                        Beta1 parameter for Adam and Nadam optimizers.
+  -beta2 BETA2, --beta2 BETA2
+                        Beta2 parameter for Adam and Nadam optimizers.
+  -eps EPSILON, --epsilon EPSILON
+                        Epsilon value for Adam and Nadam optimizers.
+  -w_d WEIGHT_DECAY, --weight_decay WEIGHT_DECAY
+                        Weight decay (L2 regularization factor).
+  -w_i WEIGHT_INIT, --weight_init WEIGHT_INIT
+                        Momentum factor (used for 'momentum' and 'NAG' optimizers).
+  -beta BETA, --beta BETA
+                        Beta parameter for RMSProp optimizer.
+  -beta1 BETA1, --beta1 BETA1
+                        Beta1 parameter for Adam and Nadam optimizers.
+  -beta2 BETA2, --beta2 BETA2
+                        Beta2 parameter for Adam and Nadam optimizers.
+  -eps EPSILON, --epsilon EPSILON
+                        Epsilon value for Adam and Nadam optimizers.
+  -w_d WEIGHT_DECAY, --weight_decay WEIGHT_DECAY
+                        Weight decay (L2 regularization factor).
+  -w_i WEIGHT_INIT, --weight_init WEIGHT_INIT
+  -beta1 BETA1, --beta1 BETA1
+                        Beta1 parameter for Adam and Nadam optimizers.
+  -beta2 BETA2, --beta2 BETA2
+                        Beta2 parameter for Adam and Nadam optimizers.
+  -eps EPSILON, --epsilon EPSILON
+                        Epsilon value for Adam and Nadam optimizers.
+  -w_d WEIGHT_DECAY, --weight_decay WEIGHT_DECAY
+                        Weight decay (L2 regularization factor).
+  -w_i WEIGHT_INIT, --weight_init WEIGHT_INIT
+                        Beta2 parameter for Adam and Nadam optimizers.
+  -eps EPSILON, --epsilon EPSILON
+                        Epsilon value for Adam and Nadam optimizers.
+  -w_d WEIGHT_DECAY, --weight_decay WEIGHT_DECAY
+                        Weight decay (L2 regularization factor).
+  -w_i WEIGHT_INIT, --weight_init WEIGHT_INIT
+  -w_d WEIGHT_DECAY, --weight_decay WEIGHT_DECAY
+                        Weight decay (L2 regularization factor).
+  -w_i WEIGHT_INIT, --weight_init WEIGHT_INIT
+  -w_i WEIGHT_INIT, --weight_init WEIGHT_INIT
+                        Weight initialization method. Options: 'random', 'xavier'.
+  -nhl NUM_LAYERS, --num_layers NUM_LAYERS
+                        Number of hidden layers in the neural network.
+  -sz HIDDEN_SIZE, --hidden_size HIDDEN_SIZE
+                        Number of neurons per hidden layer.
+  -a ACTIVATION, --activation ACTIVATION
+                        Activation function to use. Options: 'sigmoid', 'tanh', 'relu'.
+```
+Choose the appropriate parameters and train the network, for example:
+```python
+python train.py -wp Test4 -we manoj_da24s018-iit-madras -d fashion_mnist -lr 0.001 -eps 0.0001 -beta1 0.9 -beta2 0.999 -e 20 -l mean_squared_error -b 32 -o nadam -w_d 0.0005 -nhl 5 -sz 128 -a relu
+```
 
 ### Question 1
 Execute `Question1.ipynb`, make sure to update `wandb.init()` with your own wandb credentials before running.
