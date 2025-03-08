@@ -66,4 +66,28 @@ The rest of the codes accepts the number of hidden layers and number of neurons 
              "activationFunc": {"values": ["tanh", "relu", "sigmoid"]}
          }
      }
-     ```
+
+##### MNIST dataset
+
+  ``` python
+  sweep_config = {
+      "name": "Feedforward Network - Hyper parameter search",
+      "metric": {
+          "name": "Validation Loss",
+          "goal": "MINIMIZE"
+      },
+      "method": "random",
+      "parameters": {
+          "learningRate": {
+              "values": [1e-3,5e-3, 1e-4]
+              },
+          "optimizer": {
+              "values": ["sgd", "momentum", "nesterov", "rmsprop", "adam", "nadam"]
+              },
+          "activationFunc": {
+              "values": ["tanh", "relu", "sigmoid"]
+              }
+      }
+      
+  }
+       ```
