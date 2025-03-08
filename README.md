@@ -41,8 +41,8 @@ The rest of the codes accepts the number of hidden layers and number of neurons 
 #### Hyper Parameters sweep using Wandb
   `train_test_split` from `sklearn` is used to create random validation sets (10%) from the train data for the hyper parameter search.
   `random` search strategy provided by `wandb.sweep` is used to find the near optimal hyper parameters.
-  - Hyper Parameter Sweeps config:
-      1. **Fashion MNIST dataset**:
+   - Hyper Parameter Sweeps config:
+    1. **Fashion MNIST dataset**:
             
       ```python
       sweep_config = {
