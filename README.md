@@ -83,37 +83,6 @@ optional arguments:
                         Weight decay (L2 regularization factor).
   -w_i WEIGHT_INIT, --weight_init WEIGHT_INIT
                         Momentum factor (used for 'momentum' and 'NAG' optimizers).
-  -beta BETA, --beta BETA
-                        Beta parameter for RMSProp optimizer.
-  -beta1 BETA1, --beta1 BETA1
-                        Beta1 parameter for Adam and Nadam optimizers.
-  -beta2 BETA2, --beta2 BETA2
-                        Beta2 parameter for Adam and Nadam optimizers.
-  -eps EPSILON, --epsilon EPSILON
-                        Epsilon value for Adam and Nadam optimizers.
-  -w_d WEIGHT_DECAY, --weight_decay WEIGHT_DECAY
-                        Weight decay (L2 regularization factor).
-  -w_i WEIGHT_INIT, --weight_init WEIGHT_INIT
-  -beta1 BETA1, --beta1 BETA1
-                        Beta1 parameter for Adam and Nadam optimizers.
-  -beta2 BETA2, --beta2 BETA2
-                        Beta2 parameter for Adam and Nadam optimizers.
-  -eps EPSILON, --epsilon EPSILON
-                        Epsilon value for Adam and Nadam optimizers.
-  -w_d WEIGHT_DECAY, --weight_decay WEIGHT_DECAY
-                        Weight decay (L2 regularization factor).
-  -w_i WEIGHT_INIT, --weight_init WEIGHT_INIT
-                        Beta2 parameter for Adam and Nadam optimizers.
-  -eps EPSILON, --epsilon EPSILON
-                        Epsilon value for Adam and Nadam optimizers.
-  -w_d WEIGHT_DECAY, --weight_decay WEIGHT_DECAY
-                        Weight decay (L2 regularization factor).
-  -w_i WEIGHT_INIT, --weight_init WEIGHT_INIT
-  -w_d WEIGHT_DECAY, --weight_decay WEIGHT_DECAY
-                        Weight decay (L2 regularization factor).
-  -w_i WEIGHT_INIT, --weight_init WEIGHT_INIT
-  -w_i WEIGHT_INIT, --weight_init WEIGHT_INIT
-                        Weight initialization method. Options: 'random', 'xavier'.
   -nhl NUM_LAYERS, --num_layers NUM_LAYERS
                         Number of hidden layers in the neural network.
   -sz HIDDEN_SIZE, --hidden_size HIDDEN_SIZE
