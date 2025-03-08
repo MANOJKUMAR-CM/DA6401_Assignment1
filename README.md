@@ -87,7 +87,12 @@ The rest of the codes accepts the number of hidden layers and number of neurons 
           "activationFunc": {
               "values": ["tanh", "relu", "sigmoid"]
               }
-      }
+        }
       
-  }
+    }
+
+### To Perform Hyper Parameter search on Fashion MNIST dataset, with Cross Entropy as Loss function run : `hyperParam_sweep.py`
+
+
+
   
