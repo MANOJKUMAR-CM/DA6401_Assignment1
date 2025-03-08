@@ -44,7 +44,7 @@ The rest of the codes accepts the number of hidden layers and number of neurons 
    
 - **Hyperparameter Sweeps Configuration:**  
 
-  1. **Fashion MNIST dataset**:  
+  1.  **Fashion MNIST dataset**:  
 
      ```python
      sweep_config = {
