@@ -43,24 +43,24 @@ The rest of the codes accepts the number of hidden layers and number of neurons 
   `random` search strategy provided by `wandb.sweep` is used to find the near optimal hyper parameters.
   - Hyper Parameter Sweeps config:
     1. Fashion MNIST dataset:
-      
-```python
-sweep_config = {
-    "name": "Feedforward Network - Hyperparameter Search",
-    "metric": {
-        "name": "Validation Loss",
-        "goal": "MINIMIZE"
-    },
-    "method": "random",
-    "parameters": {
-        "num_epochs": {"values": [5, 10, 20]},
-        "num_hiddenLayers": {"values": [3, 4, 5]},
-        "hiddenLayer_Size": {"values": [32, 64, 128]},
-        "weightDecay": {"values": [0, 0.0005, 0.5]},
-        "learningRate": {"values": [1e-3, 1e-4]},
-        "optimizer": {"values": ["sgd", "momentum", "nesterov", "rmsprop", "adam", "nadam"]},
-        "batchSize": {"values": [16, 32, 64]},
-        "weightInit": {"values": ["random", "xavier"]},
-        "activationFunc": {"values": ["tanh", "relu", "sigmoid"]}
-    }
-}
+            
+      ```python
+      sweep_config = {
+          "name": "Feedforward Network - Hyperparameter Search",
+          "metric": {
+              "name": "Validation Loss",
+              "goal": "MINIMIZE"
+          },
+          "method": "random",
+          "parameters": {
+              "num_epochs": {"values": [5, 10, 20]},
+              "num_hiddenLayers": {"values": [3, 4, 5]},
+              "hiddenLayer_Size": {"values": [32, 64, 128]},
+              "weightDecay": {"values": [0, 0.0005, 0.5]},
+              "learningRate": {"values": [1e-3, 1e-4]},
+              "optimizer": {"values": ["sgd", "momentum", "nesterov", "rmsprop", "adam", "nadam"]},
+              "batchSize": {"values": [16, 32, 64]},
+              "weightInit": {"values": ["random", "xavier"]},
+              "activationFunc": {"values": ["tanh", "relu", "sigmoid"]}
+          }
+      }
