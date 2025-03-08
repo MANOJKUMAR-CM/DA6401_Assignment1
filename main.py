@@ -4,6 +4,9 @@ from loss import *
 from optimizers import *
 from keras.datasets import fashion_mnist
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 # Loading the data
@@ -180,6 +183,7 @@ def backward_propagation(Y, pre_Activation, Activation, W, b, activation_func):
     # Assuming cross entropy loss
     dA = Activation[f"A{L}"] - Y # output layer
     
+    
     for i in range(L, 0, -1):
         dZ = dA
         
@@ -205,24 +209,28 @@ def backward_propagation(Y, pre_Activation, Activation, W, b, activation_func):
     return gradients  
 
 # Defining network architecture
-layers = [784, 128, 64, 10]  # Input -> Hidden Layers -> Output
-activation_func = "sigmoid"  # Hidden layer activation
+layers = [784, 128, 128, 128, 128, 10]  # Input -> Hidden Layers -> Output
+activation_func = "tanh"  # Hidden layer activation
 
 # Initialize weights and biases
-W, b = initialize_weights(layers, init_method="random")
+W, b = initialize_weights(layers, init_method="xavier")
 
 # Hyperparameters
 epochs = 20
-batch_size = 32
-learning_rate = 0.01
+batch_size = 64
+learning_rate = 0.001
 beta = 0.9  # Momentum coefficient
+eps = 1e-4 
+W_decay = 0
 
-# Momentum terms
 uW = {i: np.zeros_like(W[i]) for i in W}
 ub = {i: np.zeros_like(b[i]) for i in b}
 
-num_batches = X_train.shape[1] // batch_size  
+mW = {i: np.zeros_like(W[i]) for i in W}
+mb = {i: np.zeros_like(b[i]) for i in b}
 
+num_batches = X_train.shape[1] // batch_size  
+print("Training the Feed forward Network:")
 for epoch in range(epochs):
     
     epoch_loss = 0  
@@ -243,7 +251,7 @@ for epoch in range(epochs):
         gradients = backward_propagation(Y_batch, pre_Activation, Activation, W, b, activation_func)
 
         # Updating weights using optimizer
-        W, b, uW, ub = Momentum_GD(W, b, uW, ub, gradients, learning_rate, beta)
+        W, b, uW, ub = Adam(W, b, uW, ub, mW, mb,  gradients, learning_rate, eps, i+1, W_decay)
 
     # Print loss averaged over all batches
     print(f"Epoch {epoch+1}/{epochs}, Loss: {epoch_loss / num_batches:.4f}")
@@ -255,3 +263,21 @@ y_actual = np.argmax(Y_test, axis=0)
 
 accuracy = np.mean(y_test_pred == y_actual)
 print(f"Test Accuracy: {accuracy * 100:.2f}%")
+
+
+label_names = [
+    "T-shirt/Top", "Trouser", "Pullover", "Dress", "Coat", 
+    "Sandal", "Shirt", "Sneaker", "Bag", "Ankle Boot"
+]
+cm = confusion_matrix(y_actual, y_test_pred)
+plt.figure(figsize=(10, 8))
+sns.heatmap(cm, annot=True, fmt="d", cmap="Reds", xticklabels=label_names, yticklabels=label_names)
+plt.ylabel("Predicted Labels")
+plt.xlabel("True Labels")
+plt.title("Confusion Matrix - Test Data")
+
+plt.xticks(rotation=45, ha="right")  
+plt.yticks(rotation=0) 
+
+plt.show()
+
