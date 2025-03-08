@@ -7,7 +7,8 @@ The objective of this Assignment is to **implement a Feedforward Neural Network 
 
 - **Forward and Backward Propagation**  
 - **Optimizers**  
-- **Loss Functions**   
+- **Loss Functions**
+- **Activation Functions**  
 - **Experiment tracking using [wandb.ai](https://wandb.ai/)** 
 
 ## Optimizers Implemented  
@@ -23,6 +24,13 @@ The objective of this Assignment is to **implement a Feedforward Neural Network 
 
 - **Cross Entropy Loss**  
 - **Mean Squared Error (MSE)**
+
+## Activation Functions Implemented  
+
+- **Sigmoid**  
+- **Tanh**
+- **Relu**
+- **Softmax**
 
 ### Question 1
 Execute `Question1.ipynb`, make sure to update `wandb.init()` with your own wandb credentials before running.
