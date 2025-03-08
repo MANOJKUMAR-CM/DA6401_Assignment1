@@ -24,6 +24,7 @@ The objective of this Assignment is to **implement a Feedforward Neural Network 
 
 - **Cross Entropy Loss**  
 - **Mean Squared Error (MSE)**
+  
 The functions are implemented in `loss.py`.
 
 ## Activation Functions Implemented  
@@ -32,6 +33,7 @@ The functions are implemented in `loss.py`.
 - **Tanh**
 - **Relu**
 - **Softmax**
+  
 The functions are implemented in `activation_functions.py`.
 
 ### Question 1
