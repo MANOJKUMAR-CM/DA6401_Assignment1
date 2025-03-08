@@ -92,7 +92,12 @@ The rest of the codes accepts the number of hidden layers and number of neurons 
                }
             }
   ```
-#### Update the wandb.sweep(sweep_config, entity = <Name>, project = <project_name>) with your own wandb credentials before running.
+#### Update WandB Credentials  
+Before running the sweep, update the following command with your own WandB credentials:  
+
+```python
+wandb.sweep(sweep_config, entity="<your_name>", project="<your_project_name>")
+```
 
 - To Perform Hyper Parameter search on Fashion MNIST dataset, with Cross Entropy as Loss function run : `hyperParam_sweep.py`
 - To Perform Hyper Parameter search on Fashion MNIST dataset, with MSE as Loss function run : `hyperParam_sweep_MSE.py`
