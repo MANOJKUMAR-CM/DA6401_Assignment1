@@ -23,3 +23,6 @@ The objective of this Assignment is to **implement a Feedforward Neural Network 
 
 - **Cross Entropy Loss**  
 - **Mean Squared Error (MSE)**
+
+### Question 1
+Execute `Question1.ipynb` file, make sure to update `wandb.init()` with your own wandb credentials before running.
