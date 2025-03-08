@@ -9,3 +9,17 @@ The objective of this Assignment is to **implement a Feedforward Neural Network 
 - **Optimizers**  
 - **Loss Functions**   
 - **Experiment tracking using [wandb.ai](https://wandb.ai/)** 
+
+## Optimizers Implemented  
+
+- **SGD** - Stochastic Gradient Descent  
+- **Momentum** - Momentum-based SGD  
+- **NAG** - Nesterov Accelerated Gradient (optimized version)  
+- **RMSProp** - Root Mean Square Propagation  
+- **Adam** - Adaptive Moment Estimation  
+- **Nadam** - Nesterov Adaptive Moment Estimation  
+
+## Loss Functions Implemented  
+
+- **Cross Entropy Loss**  
+- **Mean Squared Error (MSE)**
