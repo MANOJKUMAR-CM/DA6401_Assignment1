@@ -113,7 +113,7 @@ wandb.sweep(sweep_config, entity="<your_name>", project="<your_project_name>")
 
 - To Perform Hyper Parameter search on Fashion MNIST dataset, with Cross Entropy as Loss function run :
   ``` python
-  python hyperParam_sweep_MSE.py
+  python hyperParam_sweep.py
   ```
 - To Perform Hyper Parameter search on Fashion MNIST dataset, with MSE as Loss function run :
   ``` python
