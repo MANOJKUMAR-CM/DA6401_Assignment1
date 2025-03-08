@@ -24,6 +24,7 @@ The objective of this Assignment is to **implement a Feedforward Neural Network 
 
 - **Cross Entropy Loss**  
 - **Mean Squared Error (MSE)**
+The functions are implemented in `loss.py`.
 
 ## Activation Functions Implemented  
 
@@ -31,6 +32,7 @@ The objective of this Assignment is to **implement a Feedforward Neural Network 
 - **Tanh**
 - **Relu**
 - **Softmax**
+The functions are implemented in `activation_functions.py`.
 
 ### Question 1
 Execute `Question1.ipynb`, make sure to update `wandb.init()` with your own wandb credentials before running.
