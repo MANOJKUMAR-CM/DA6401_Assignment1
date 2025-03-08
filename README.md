@@ -46,7 +46,7 @@ The rest of the codes accepts the number of hidden layers and number of neurons 
 
   ##### Fashion MNIST dataset 
 
-     
+     ```python
      sweep_config = {
          "name": "Feedforward Network - Hyperparameter Search",
          "metric": {
@@ -66,11 +66,13 @@ The rest of the codes accepts the number of hidden layers and number of neurons 
              "activationFunc": {"values": ["tanh", "relu", "sigmoid"]}
          }
      }
+     ```
+     
 
 ##### MNIST dataset
 
-  
-  sweep_config = {
+  ```python
+sweep_config = {
       "name": "Feedforward Network - Hyper parameter search",
       "metric": {
           "name": "Validation Loss",
@@ -87,10 +89,9 @@ The rest of the codes accepts the number of hidden layers and number of neurons 
           "activationFunc": {
               "values": ["tanh", "relu", "sigmoid"]
               }
+           }
         }
-      
-    }
-
+```
 
 ### To Perform Hyper Parameter search on Fashion MNIST dataset, with Cross Entropy as Loss function run : `hyperParam_sweep.py`
 
