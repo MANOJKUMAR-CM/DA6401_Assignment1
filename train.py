@@ -190,7 +190,7 @@ def forward_propagation(X, W, b, activations):
     return A, pre_Activation, Activation
 
     
-def backward_propagation(Y, pre_Activation, Activation, W, b, activation_func):
+def backward_propagation(Y, pre_Activation, Activation, W, b, activation_func, loss):
     """
     To Compute the gradients with respect to weights and biases
     
@@ -218,8 +218,12 @@ def backward_propagation(Y, pre_Activation, Activation, W, b, activation_func):
     gradients = {}
     L = len(W) # Number of Layers
     
-    # Assuming cross entropy loss
-    dA = Activation[f"A{L}"] - Y # output layer
+    if(loss == "cross_entropy"):
+        dA = Activation[f"A{L}"] - Y # output layer
+    elif(loss == "mean_squared_error"):
+        dA = (Activation[f"A{L}"] - Y)*d_softmax(pre_Activation[f"Z{L}"]) # output layer
+    else:
+        raise ValueError(f"Invalid Loss '{loss}'! Please choose from: ['cross_entropy', 'mean_squared_error'].")
     
     
     for i in range(L, 0, -1):
@@ -338,7 +342,7 @@ for epoch in range(args.epochs):
         epoch_loss += loss
         
         # Computing the gradients
-        gradients = backward_propagation(Y_batch, pre_Activation, Activation, W, b, args.activation)
+        gradients = backward_propagation(Y_batch, pre_Activation, Activation, W, b, args.activation, args.loss)
         
         # Updating weights using optimizer
         
